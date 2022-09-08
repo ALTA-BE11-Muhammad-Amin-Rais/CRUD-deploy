@@ -24,7 +24,7 @@ func New(e *echo.Echo, usecase user.ServiceInterface) {
 	e.PUT("/users/:id", handler.PutDataWithJWT, middlewares.JWTMiddleware())
 	e.DELETE("/users/:id", handler.DeldateWithJWT, middlewares.JWTMiddleware())
 	e.GET("/test", Test)
-	e.GET("/test/users", handler.GetAllWithJWT)
+	e.GET("/test/users", TestUsers)
 
 }
 
@@ -134,4 +134,8 @@ func (users *UserHandler) DeldateWithJWT(e echo.Context) error {
 
 func Test(e echo.Context) error {
 	return e.JSON(200, helper.SuccessResponseHelper("test success"))
+}
+
+func TestUsers(e echo.Context) error {
+	return e.JSON(200, helper.SuccessResponseHelper("test users success"))
 }
