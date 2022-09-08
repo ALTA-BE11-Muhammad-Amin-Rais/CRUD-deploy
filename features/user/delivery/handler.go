@@ -24,6 +24,7 @@ func New(e *echo.Echo, usecase user.ServiceInterface) {
 	e.PUT("/users/:id", handler.PutDataWithJWT, middlewares.JWTMiddleware())
 	e.DELETE("/users/:id", handler.DeldateWithJWT, middlewares.JWTMiddleware())
 	e.GET("/test", Test)
+	e.GET("/test/users", handler.GetAllWithJWT)
 
 }
 
