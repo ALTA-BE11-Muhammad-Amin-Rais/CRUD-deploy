@@ -19,6 +19,7 @@ jobs:
           port: ${{ secrets.PORT }}
           script: |
             cd /home/ubuntu/CRUD-deploy
+            sudo chmod 777 /var/run/docker.sock
             git pull origin main
             docker stop be11-api
             docker rm be11-api
