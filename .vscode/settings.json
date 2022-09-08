@@ -1,5 +1,0 @@
-{
-    "yaml.schemas": {
-        "https://json.schemastore.org/github-workflow.json": "file:///Users/raisy/Amin/Deployment/RESTApi-Clean-Architecture-test/.github/workflows/deploy.yml"
-    }
-}
