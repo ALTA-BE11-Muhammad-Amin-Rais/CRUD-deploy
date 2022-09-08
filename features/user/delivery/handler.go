@@ -23,6 +23,7 @@ func New(e *echo.Echo, usecase user.ServiceInterface) {
 	e.POST("/users", handler.AddUser)
 	e.PUT("/users/:id", handler.PutDataWithJWT, middlewares.JWTMiddleware())
 	e.DELETE("/users/:id", handler.DeldateWithJWT, middlewares.JWTMiddleware())
+	e.GET("/test", Test)
 
 }
 
@@ -128,4 +129,8 @@ func (users *UserHandler) DeldateWithJWT(e echo.Context) error {
 		return e.JSON(400, helper.FailedResponseHelper("not have access"))
 	}
 
+}
+
+func Test(e echo.Context) error {
+	return e.JSON(200, helper.SuccessResponseHelper("test success"))
 }
